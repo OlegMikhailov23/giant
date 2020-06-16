@@ -1,0 +1,330 @@
+@import "../variables";
+@import "../mixin";
+
+.nav__wrapper {
+  @include container();
+  padding-left: 0;
+  padding-right: 0;
+  z-index: 10;
+  height: 105px;
+}
+
+header {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  z-index: 30;
+  will-change: transform;
+  transition: background 0.3s, -webkit-transform 0.5s cubic-bezier(0.694, 0.048, 0.335, 1);
+  transition: transform 0.5s cubic-bezier(0.694, 0.048, 0.335, 1), background 0.3s;
+  transition: transform 0.5s cubic-bezier(0.694, 0.048, 0.335, 1), background 0.3s, -webkit-transform 0.5s cubic-bezier(0.694, 0.048, 0.335, 1);
+  transform: translateY(0);
+  -webkit-transform: translateY(0);
+}
+
+header nav .logo {
+  display: block;
+  height: 86px;
+  width: 106px;
+  font-size: 0;
+  line-height: inherit;
+  margin-left: 3%;
+  color: $main-font-color;
+  cursor: pointer;
+  @include cover-background("../img/logo.svg", top, center, scroll);
+  background-size: 100% 100%;
+}
+
+
+header nav .logo:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+header nav ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+header nav ul li {
+  float: none;
+  margin-left: 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  transition: all 0.3s ease-out;
+}
+
+.menu-left-opened {
+  background-color: #25262a;
+}
+
+.menu-left .menu-left__link {
+  @include fontpref(14px, 24px, 400);
+  position: relative;
+  display: block;
+  margin-bottom: 35px;
+  text-align: center;
+  padding-top: 20px;
+  text-decoration: none;
+  color: $second-font-color;
+  font-family: inherit;
+  letter-spacing: 0.5px;
+  transition: color .35s ease;
+}
+
+.menu-left .menu-left__link:hover {
+  color: $fourth-font-color;
+  transition: .35s ease;
+}
+
+.menu-left .menu-left__link:active {
+  color: $hover-font-color;
+  transition: .35s ease;
+}
+
+.hide-nav {
+  transform: translateY(-120%) !important;
+  -webkit-transform: translateY(-120%) !important;
+}
+
+ul.menu-left {
+  width: 100%;
+  display: block;
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  z-index: 10;
+}
+
+ul.menu-left.collapse {
+  max-height: 100vh;
+}
+
+.menu-left .menu-left__download-btn {
+  @include link-btn();
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 3%;
+  @include fontpref(14px, 24px, 600);
+  color: $third-font-color;
+  width: 60%;
+  outline: none;
+  order: 4;
+
+  &:hover {
+    color: $btn-font-color;
+  }
+}
+
+.nav-toggle {
+  position: relative;
+  height: 28px;
+  width: 41px;
+  margin-top: 30px;
+  margin-right: 20px;
+  border-radius: 5px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.nav-toggle::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: #000000;
+  font-size: 10px;
+  width: auto;
+}
+
+.nav-toggle.open span:first-child {
+  transform: rotate(45deg) translate(8.4px, 7.4px);
+}
+
+.nav-toggle.open span:nth-child(2) {
+  width: 0%;
+  opacity: 0;
+}
+
+.nav-toggle.open span:last-child {
+  transform: rotate(-45deg) translate(8.4px, -7.4px);
+}
+
+.nav-toggle span {
+  position: relative;
+  display: block;
+  height: 4px;
+  width: 48px;
+  margin-top: 7px;
+  background-color: $second-font-color;
+  transition: all .25s;
+}
+
+@media ($tablet-widths) {
+  .menu-left .menu-left__link:hover:before {
+    width: 100%;
+    transition: width .35s ease;
+  }
+
+  .menu-left .menu-left__link:hover:after {
+    width: 100%;
+    background: transparent;
+    transition: all 0s ease;
+  }
+
+  ul {
+    clear: both;
+  }
+
+  ul li {
+    padding: .5em 0;
+  }
+
+  nav {
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  header nav .logo {
+    height: 106px;
+    width: 126px;
+  }
+
+  .nav-toggle {
+    margin-right: 5%;
+  }
+
+  .menu-left {
+    padding-top: 22px;
+  }
+
+  .navigation .menu-left {
+    display: flex;
+  }
+
+  .menu-left .menu-left__link {
+    padding-top: 0;
+    font-size: 16px;
+    text-decoration: none;
+    color: $second-font-color;
+    font-family: inherit;
+  }
+}
+
+@media ($desktop-widths) {
+  nav {
+    width: 1140px;
+    margin: 0 auto;
+  }
+
+  .menu-left .menu-left__download-btn {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 150px;
+    margin-left: 37px;
+  }
+
+  .menu-left .menu-left__link:before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background: $hover-font-color;
+    transition: width 0s ease, background .35s ease;
+  }
+
+  .menu-left .menu-left__link:after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background: $hover-font-color;
+    transition: width .35s ease;
+  }
+
+  .menu-left-opened {
+    background-color: transparent;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .menu-left {
+    order: 3;
+  }
+
+  header nav .logo {
+    margin-left: 5%;
+    margin-top: -3px;
+    order: 0;
+  }
+
+  .menu-left .menu-left__link {
+    margin-left: 32px;
+    @include fontpref(14px, 24px, 400);
+    height: auto;
+    padding-top: 0;
+    padding-left: 7px;
+    padding-right: 7px;
+
+    &:hover {
+      color: $hover-font-color;
+    }
+  }
+
+  .menu-left .menu-left__link-first {
+    margin-left: 0;
+  }
+
+  .menu-left__download-btn {
+    padding-top: 8px;
+    width: auto;
+    margin-left: 2.1rem;
+    width: 160px;
+  }
+
+
+  nav .menu-left {
+    max-height: 50px;
+    overflow: visible;
+    width: 50%;
+  }
+
+  header nav ul li {
+    display: inline-block;
+    width: auto;
+  }
+
+  header nav ul {
+    padding-left: 50px;
+  }
+}
+
+@media ($extra-desktop-widths) {
+  header nav .logo {
+    margin-left: 0;
+  }
+
+  header nav ul {
+    padding-left: 120px;
+  }
+}

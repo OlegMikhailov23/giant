@@ -1,0 +1,132 @@
+@import "../variables";
+@import "../mixin";
+
+.promo {
+  position: relative;
+  @include container();
+}
+
+.promo__wrapper {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding-top: 118px;
+  padding-bottom: 60px;
+}
+
+.promo__text {
+  padding-bottom: 30px;
+}
+
+.promo__text h2 {
+  @include zero-style();
+  @include fontpref(36px, 36px, 500);
+  padding-bottom: 23px;
+  font-family: 'Dosis';
+  text-align: center;
+  color: $third-font-color;
+}
+
+.promo__text p {
+  @include zero-style();
+  @include fontpref(14px, 24px, 300);
+  font-family: 'Roboto';
+  color: $main-font-color;
+}
+
+.promo__text p:nth-child(2) {
+  padding-bottom: 68px;
+}
+
+.promo__text p:nth-child(3) {
+  padding-bottom: 20px;
+}
+
+.promo__text ul {
+  @include zero-style();
+
+  & li {
+    position: relative;
+    @include fontpref(14px, 24px, 400);
+    color: $main-font-color;
+    padding-left: 15%;
+    padding-right: 10%;
+    padding-bottom: 2px;
+  }
+
+  & i {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    border-radius: 50%;
+    color: #222222;
+  }
+}
+
+.promo__picture-container {
+  margin: 0 auto;
+  width: 227px;
+  height: 295px;
+  @include cover-background("../img/iPhone.png", top, center, scroll);
+  background-size: 100% 100%;
+}
+
+@media ($tablet-widths) {
+  .promo__wrapper {
+    padding-bottom: 110px;
+  }
+
+  .promo__picture {
+    order: 0;
+    margin-top: 120px;
+  }
+
+  .promo__text {
+    order: 1;
+  }
+
+  .promo__text ul li {
+    padding-left: 35px;
+  }
+
+  .promo__text ul i {
+    top: 13px;
+    left: 0;
+  }
+
+  .promo__text h2 {
+    text-align: left;
+  }
+
+  .promo__text p {
+    @include padding-left-right(0, 0);
+  }
+
+  .promo__picture-container {
+    position: relative;
+    width: 272px;
+    height: 355px;
+  }
+}
+
+@media ($desktop-widths) {
+  .promo__text h2 {
+    margin-top: 52px;
+  }
+
+
+  .promo__picture-container {
+    background: none;
+
+    &::before {
+      @include pseudo();
+      bottom: -97px;
+      left: -540px;
+      width: 1205px;
+      height: 710px;
+      @include cover-background("../img/promo-iPhone.png", top, center, scroll);
+      background-size: 100% 100%;
+    }
+  }
+
+
+}

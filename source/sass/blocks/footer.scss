@@ -1,0 +1,42 @@
+@import "../variables";
+@import "../mixin";
+
+footer {
+  position: relative;
+  @include container();
+  background-color: #222222;
+}
+
+.footer__wrapper {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding-top: 57px;
+  padding-bottom: 58px;
+}
+
+.footer__social-links {
+  padding-left: 37px;
+  padding-right: 37px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 225px;
+  text-align: center;
+
+  & a {
+    color: $second-font-color;
+    font-size: 18px;
+    transition: all 0.3s ease-out;
+  }
+
+  & a:hover {
+    color: $btn-font-color;
+  }
+}
+
+.footer__copyrights {
+  text-align: center;
+  @include fontpref(14px, 24px, 300);
+  color: $second-font-color;
+}

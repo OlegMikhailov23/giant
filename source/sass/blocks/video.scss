@@ -1,0 +1,67 @@
+@import "../variables";
+@import "../mixin";
+
+.video {
+  position: relative;
+  @include container();
+  padding-left: 0;
+  padding-right: 0;
+  background-color: #000000;
+}
+
+.video__wrapper {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  margin: 0 auto;
+  text-align: center;
+  @include cover-background("../img/video-bg-mobile.jpg", top, center, scroll);
+  font-size: 0;
+}
+
+.video__video-btn {
+  display: inline-block;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  z-index: 2;
+  color: #ffffff;
+  background: linear-gradient(90deg, rgb(253, 113, 44) 0%, rgb(242, 23, 128) 100%);
+  transition: 0.3s ease-out;
+  border: none;
+  outline: none !important;
+  cursor: pointer;
+
+  & i {
+    position: relative;
+    top: 5px;
+    left: 3px;
+    font-size: 24px;
+  }
+
+  &:hover {
+    color: $main-font-color;
+  }
+
+  &:active {
+    color: rgba(255, 255, 255, 0.3);
+    transition: 0.3s;
+    @include bsh(0px, 3px, 1px, 0, #151414, inset);
+  }
+}
+
+@media ($tablet-widths) {
+  .video__wrapper {
+    @include cover-background("../img/video-bg-tablet.jpg", top, center, scroll);
+  }
+}
+
+@media ($desktop-widths) {
+  .video__wrapper {
+    @include cover-background("../img/video-bg-desktop.jpg", top, center, scroll);
+  }
+}

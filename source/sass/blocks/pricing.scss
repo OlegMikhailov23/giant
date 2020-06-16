@@ -1,0 +1,199 @@
+@import "../variables";
+@import "../mixin";
+
+.pricing {
+  position: relative;
+  @include container();
+
+}
+
+.pricing__wrapper {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding-top: 116px;
+  padding-bottom: 73px;
+}
+
+.pricing__wrapper h2 {
+  @include zero-style();
+  @include fontpref(36px, 36px, 500);
+  padding-bottom: 21px;
+  font-family: 'Dosis';
+  text-align: center;
+  color: $third-font-color;
+}
+
+.pricing__wrapper p {
+  @include zero-style();
+  @include fontpref(14px, 24px, 300);
+  padding-left: 15px;
+  padding-right: 15px;
+  font-family: 'Roboto';
+  color: $main-font-color;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.pricing__item {
+  margin-bottom: 50px !important;
+}
+
+.pricing__item__container {
+  max-width: 263px;
+  min-height: 480px;
+  background-color: #f7fafc;
+  padding-left: 34px;
+  padding-right: 34px;
+  margin: 0 auto;
+  transition: all 0.3s ease-out;
+
+  &:hover {
+    background-color: #ffffff;
+    box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.1);
+  }
+
+  &:hover .pricing__item__container__cost {
+    background: linear-gradient(90deg, rgb(253, 113, 44) 0%, rgb(242, 23, 128) 100%);
+  }
+
+  &:hover .pricing__item__container__cost::before {
+    @include cover-background("../img/trio-hover.svg", top, center, scroll);
+  }
+
+  &:hover .pricing__item__container__cost span {
+    color: $second-font-color;
+  }
+
+  &:hover .pricing__item__container__btn {
+    color: $second-font-color;
+    background: linear-gradient(90deg, rgb(253, 113, 44) 0%, rgb(242, 23, 128) 100%);
+    box-shadow: 0 0 0 3px #eeeeee;
+  }
+
+  &:hover .pricing__item__container__btn:active {
+    color: rgba(255, 255, 255, 0.3);
+    @include bsh(0px, 3px, 1px, 0, #151414, inset);
+  }
+}
+
+
+.pricing__item__container h3 {
+  @include zero-style();
+  @include fontpref(20px, 24px, 600);
+  padding-top: 14px;
+  padding-bottom: 18px;
+  font-family: 'Dosis';
+  text-align: center;
+  color: $third-font-color;
+}
+
+.pricing__item__container__cost {
+  position: relative;
+  padding-top: 20px;
+  height: 80px;
+  margin-left: -34px;
+  margin-right: -34px;
+  margin-bottom: 60px;
+  background-color: #ffffff;
+
+  &::before {
+    @include pseudo();
+    left: 0;
+    top: 79px;
+    @include cover-background("../img/trio.svg", top, center, scroll);
+    width: 100%;
+    height: 40px;
+    z-index: 2;
+  }
+}
+
+.pricing__item__container__cost span {
+  @include zero-style();
+  display: block;
+  @include fontpref(48px, 50px, 600);
+  padding-bottom: 23px;
+  font-family: 'Dosis';
+  text-align: center;
+  color: $third-font-color;
+  margin: 0 auto;
+
+  & sup {
+    @include fontpref(18px, 18px, 600);
+    top: -23px;
+  }
+
+  & sub {
+    @include fontpref(16px, 18px, 600);
+    top: -2px;
+  }
+}
+
+.pricing__item__container ul {
+  @include zero-style();
+  margin-bottom: 35px;
+
+  & li {
+    @include zero-style();
+    padding-top: 4px;
+    position: relative;
+    @include fontpref(14px, 30px, 300);
+    color: $main-font-color;
+    text-align: center;
+    border-bottom: 1px dashed #eeeeee;
+  }
+}
+
+.pricing__item__container ul li:nth-last-child(1) {
+  border-bottom: none;
+}
+
+.pricing__item__container b {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 9px;
+  @include fontpref(14px, 24px, 300);
+  color: #aaaaaa;
+  text-align: center;
+}
+
+.pricing__item__container__btn {
+  @include link-btn();
+  @include padding-left-right (5px, 5px);
+  @include padding-top-bottom (7px, 7px);
+  display: block;
+  margin: 0 auto;
+  width: 68%;
+  border: 1px solid #eeeeee;
+  box-sizing: content-box;
+  outline: none !important;
+}
+
+@media ($tablet-widths) {
+  .pricing__wrapper p {
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+}
+
+@media ($desktop-widths) {
+  .pricing__item:nth-child(1) {
+    padding-left: 0;
+  }
+
+  .pricing__item:nth-child(2) {
+    padding-left: 12px;
+  }
+
+  .pricing__item:nth-child(3) {
+    padding-left: 18px;
+  }
+
+  .pricing__item:nth-child(4) {
+    padding-right: 0;
+    padding-left: 27px;
+  }
+
+  .pricing__wrapper p {
+    margin-bottom: 73px;
+  }
+}

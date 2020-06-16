@@ -1,0 +1,168 @@
+@import "../variables";
+@import "../mixin";
+
+.intro {
+  position: relative;
+  @include container();
+  min-height: 800px;
+  margin-top: -105px;
+  padding-bottom: 1%;
+  background: linear-gradient(90deg, rgb(253, 113, 44) 0%, rgb(242, 23, 128) 100%);
+}
+
+.intro::before {
+    @include pseudo();
+    bottom: 0;
+    right: 0;
+    width: 240px;
+    height: 154px;
+    @include cover-background("../img/intro-iPhones-mobile.png", top, center, scroll);
+    background-size: 100% 100%;
+}
+
+.intro__wrapper {
+  position: relative;
+  max-width: 1140px;
+  margin: 0 auto;
+  will-change: transform;
+  transition: all 0.3s ease-out;
+}
+
+.intro__title {
+  padding-top: 155px;
+  padding-left: 10%;
+  padding-right: 10%;
+  @include fontpref(2em, 34px, 600);
+  font-family: 'Dosis';
+  color: $h1-color;
+  text-align: center;
+  padding-bottom: 10%;
+}
+
+.intro__article {
+  @include zero-style();
+  padding-left: 10%;
+  padding-right: 10%;
+  @include fontpref(14px, 24px, 300);
+  color: $second-font-color;
+  padding-bottom: 8px;
+}
+
+.intro__advantages-list {
+  @include zero-style();
+
+  & li {
+    position: relative;
+    @include fontpref(14px, 24px, 400);
+    color: $second-font-color;
+    padding-left: 15%;
+    padding-right: 10%;
+    padding-bottom: 3px;
+
+    & i {
+      position: absolute;
+      top: 5px;
+      left: 10%;
+      border-radius: 50%;
+      color: #ffffff;
+    }
+  }
+}
+
+.intro__btn {
+  @include link-btn();
+  display: block;
+  margin: 0 auto;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  @include fontpref(14px, 24px, 600);
+  width: 60%;
+  outline: none !important;
+  box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.1);
+}
+
+@media ($tablet-widths) {
+  .intro {
+    min-height: 800px;
+  }
+
+  .intro::before { 
+      width: 479px;
+      height: 308px;    
+  }
+
+  .intro__advantages-list li i {
+    top: 12px;
+  }
+}
+
+@media ($desktop-widths) {
+  .intro::before {
+      bottom: 35px;
+      width: 766px;
+      height: 493px;
+      @include cover-background("../img/intro-iPhones.png", top, center, scroll);
+    }
+
+  .intro__title {
+    padding-top: 210px;
+    padding-left: 5%;
+    width: 55%;
+    @include fontpref(54px, 60px, 600);
+    font-family: 'Dosis';
+    color: $h1-color;
+    text-align: left;
+    padding-bottom: 14px;
+  }
+
+  .intro__article {
+    padding-left: 5%;
+    width: 55%;
+  }
+
+  .intro__advantages-list li {
+    padding-left: 8%;
+  }
+
+  .intro__advantages-list li i {
+    left: 5%;
+  }
+
+  .intro__btn {
+    @include link-btn();
+    padding-top: 5px;
+    padding-bottom: 8px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 33px;
+    margin-left: 5%;
+    width: 192px;
+  }
+
+}
+
+@media ($extra-desktop-widths) {
+  .intro__title,
+  .intro__article {
+    padding-left: 0;
+  }
+
+  .intro__btn {
+    margin-left: 0;
+  }
+
+  .intro::before {
+      width: 958px;
+      height: 616px;
+      @include cover-background("../img/intro-iPhones.png", top, center, scroll);
+      background-size: 100% 100%;
+    }
+
+    .intro__advantages-list li {
+      padding-left: 35px;
+    }
+   
+   .intro__advantages-list li i {
+     left: 0;
+   }
+}
