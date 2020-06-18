@@ -1,6 +1,6 @@
 'use strict';
 
-var swiper = new Swiper('#swiper-gallery', {
+var gallerySwiper = new Swiper ('#swiper-gallery', {
   effect: 'coverflow',
   grabCursor: false, 
   initialSlide: 3,
@@ -19,12 +19,11 @@ var swiper = new Swiper('#swiper-gallery', {
   },
 });
 
-var swiper = new Swiper('#swiper-feedback', {
+var feedbackSwiper = new Swiper ('#swiper-feedback', {
   grabCursor: 'true',
   slidesPerView: 'auto',
   spaceBetween: 32,
   initialSlide: 1,
-  // loop: true,
   centeredSlides: true,
   navigation: {
     nextEl: '.custom-button-next',
